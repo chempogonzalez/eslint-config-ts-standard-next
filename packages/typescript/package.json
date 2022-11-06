@@ -1,0 +1,35 @@
+{
+  "name": "@chempo/eslint-config-ts",
+  "version": "0.1.0",
+  "description": "ESLint config for TypeScript with standard config + plugins for best practices",
+  "author": "Chempo González <chempo.glez@gmail.com> (https://github.com/chempogonzalez/)",
+  "license": "MIT",
+  "homepage": "https://github.com/chempo/eslint-config-ts-standard-next/packages/typescript",
+  "keywords": [
+    "eslint-config",
+    "typescript",
+    "next",
+    "best practices"
+  ],
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "tsdoc.json"
+  ],
+  "peerDependencies": {
+    "eslint": ">=7.4.0",
+    "typescript": ">=3.9"
+  },
+  "dependencies": {
+    "@chempo/eslint-config-base": "workspace:*",
+    "@types/eslint": "8.4.9",
+    "@types/node": "18.11.9",
+    "@typescript-eslint/eslint-plugin": "5.42.0",
+    "@typescript-eslint/parser": "5.42.0",
+    "eslint-config-standard-with-typescript": "23.0.0",
+    "eslint-plugin-tsdoc": "0.2.17"
+  },
+  "devDependencies": {
+    "eslint": "8.26.0"
+  }
+}
