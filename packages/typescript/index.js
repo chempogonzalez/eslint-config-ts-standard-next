@@ -31,15 +31,7 @@ const TYPESCRIPT_RULES = {
 
   '@typescript-eslint/no-explicit-any': OFF,
 
-  'no-unused-vars': OFF,
-  '@typescript-eslint/no-unused-vars': [
-    ERROR,
-    {
-      args: 'none',
-      ignoreRestSiblings: true,
-      caughtErrors: 'none',
-    },
-  ],
+
 
   'indent': OFF,
   '@typescript-eslint/indent': [
@@ -89,6 +81,9 @@ const TYPESCRIPT_RULES = {
   'comma-dangle': OFF,
   '@typescript-eslint/comma-dangle': [ERROR, 'always-multiline'],
 
+  // It causes bad performance
+  '@typescript-eslint/no-misused-promises': OFF,
+
   'tsdoc/syntax': WARNING,
 }
 
@@ -118,6 +113,23 @@ module.exports = {
   },
   ignorePatterns: ['!*.d.ts'],
   plugins: ['@typescript-eslint/eslint-plugin', 'eslint-plugin-tsdoc'],
+  rules: {
+    'no-redeclare': 'off',
+    '@typescript-eslint/no-redeclare': ERROR,
+
+    'no-use-before-define': 'off',
+    '@typescript-eslint/no-use-before-define': [ERROR, { functions: false, classes: false, variables: true, enums: false, typedefs: false }],
+
+    'no-unused-vars': OFF,
+    '@typescript-eslint/no-unused-vars': [
+      ERROR,
+      {
+        args: 'none',
+        ignoreRestSiblings: true,
+        caughtErrors: 'none',
+      },
+    ],
+  },
   overrides: [
     {
       files: ['*.ts', '*.tsx'],
