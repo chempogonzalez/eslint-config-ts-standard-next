@@ -55,6 +55,14 @@ const COMMON_RULES = {
   'array-bracket-newline': [ERROR, { multiline: true, minItems: 4 }],
 
   'array-bracket-spacing': [ERROR, 'never', { arraysInArrays: true }],
+
+  'import-newlines/enforce': [
+    'error',
+    {
+      'max-len': 160,
+      'semi': false,
+    },
+  ],
 }
 
 module.exports = {
@@ -90,7 +98,7 @@ module.exports = {
     '!.vitepress',
     '!.vscode',
   ],
-  plugins: ['html', 'unicorn'],
+  plugins: ['html', 'unicorn', 'import-newlines'],
   settings: {
     'import/resolver': {
       node: {

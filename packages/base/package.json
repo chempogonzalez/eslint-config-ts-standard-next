@@ -1,6 +1,6 @@
 {
   "name": "@chempo/eslint-config-base",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "ESLint config with standard rules + plugins for best practices",
   "author": "Chempo González <chempo.glez@gmail.com> (https://github.com/chempogonzalez/)",
   "license": "MIT",
@@ -23,6 +23,7 @@
     "eslint-plugin-eslint-comments": "3.2.0",
     "eslint-plugin-html": "7.1.0",
     "eslint-plugin-import": "2.26.0",
+    "eslint-plugin-import-newlines": "1.2.3",
     "eslint-plugin-jsonc": "2.5.0",
     "eslint-plugin-markdown": "3.0.0",
     "eslint-plugin-n": "15.4.0",
