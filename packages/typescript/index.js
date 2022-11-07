@@ -116,6 +116,7 @@ module.exports = {
       },
     },
   },
+  ignorePatterns: ['!*.d.ts'],
   plugins: ['@typescript-eslint/eslint-plugin', 'eslint-plugin-tsdoc'],
   overrides: [
     {
@@ -130,6 +131,10 @@ module.exports = {
         warnOnUnsupportedTypeScriptVersion: true,
       },
       rules: {
+        ...TYPESCRIPT_RULES,
+
+        'import/named': OFF,
+
         // Needs overwrite to ensure typescript-eslint is who manage the rule properly
         'no-return-await': OFF,
         // warning instead of error because await in return could provide more information on errors but avoid to use it
@@ -165,11 +170,7 @@ module.exports = {
       },
     },
   ],
-  rules: {
-    ...TYPESCRIPT_RULES,
-  },
   // rules: {
-  //   // 'import/named': 'off',
 
   //   ...TYPESCRIPT_RULES,
   //   '@typescript-eslint/ban-ts-comment': ['error', { 'ts-ignore': 'allow-with-description' }],
