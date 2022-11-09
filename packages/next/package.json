@@ -1,6 +1,6 @@
 {
   "name": "@chempo/eslint-config-next",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "ESLint config for NextJS projects with standard TypeScript + plugins for best practices",
   "author": "Chempo González <chempo.glez@gmail.com> (https://github.com/chempogonzalez/)",
   "license": "MIT",
