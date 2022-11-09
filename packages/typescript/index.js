@@ -1,4 +1,7 @@
 // @ts-check
+const baseConfig = require('@chempo/eslint-config-base/index.js')
+
+
 
 const RULES = {
   OFF: 0,
@@ -6,9 +9,50 @@ const RULES = {
   ERROR: 2,
 }
 
-
-
 const { OFF, WARNING, ERROR } = RULES
+
+const equivalents = [
+  'comma-spacing',
+  'dot-notation',
+  'brace-style',
+  'func-call-spacing',
+  'indent',
+  'keyword-spacing',
+  'lines-between-class-members',
+  'no-array-constructor',
+  'no-dupe-class-members',
+  'no-extra-parens',
+  'no-loss-of-precision',
+  'no-redeclare',
+  'no-throw-literal',
+  'no-unused-vars',
+  'no-unused-expressions',
+  'no-useless-constructor',
+  'object-curly-spacing',
+  'quotes',
+  'semi',
+  'space-before-blocks',
+  'space-before-function-paren',
+  'space-infix-ops',
+]
+
+function ruleFromBase (name) {
+  if (baseConfig.rules === undefined) throw new Error('Base rules are undefined!')
+  const rule = baseConfig.rules[name]
+
+  if (rule === undefined) throw new Error(`Rule ${rule} not found in base rules`)
+
+  if (typeof rule !== 'object') return rule
+
+  return JSON.parse(JSON.stringify(rule))
+}
+
+function fromEntries (iterable) {
+  return [...iterable].reduce((obj, [key, val]) => {
+    obj[key] = val
+    return obj
+  }, {})
+}
 
 const TYPESCRIPT_RULES = {
   // To allow checks for types which are string | null and use if (variable). It's simpler
@@ -28,10 +72,7 @@ const TYPESCRIPT_RULES = {
 
   '@typescript-eslint/ban-ts-comment': ['error', { 'ts-ignore': 'allow-with-description' }],
 
-
   '@typescript-eslint/no-explicit-any': OFF,
-
-
 
   'indent': OFF,
   '@typescript-eslint/indent': [
@@ -77,7 +118,6 @@ const TYPESCRIPT_RULES = {
     },
   ],
 
-
   'comma-dangle': OFF,
   '@typescript-eslint/comma-dangle': [ERROR, 'always-multiline'],
 
@@ -87,15 +127,12 @@ const TYPESCRIPT_RULES = {
   'tsdoc/syntax': WARNING,
 }
 
-
-
-
 module.exports = {
   extends: [
     'plugin:@typescript-eslint/recommended',
     'plugin:import/typescript',
-    'standard-with-typescript',
     '@chempo/eslint-config-base',
+    'standard-with-typescript',
   ],
   settings: {
     'import/resolver': {
@@ -114,10 +151,12 @@ module.exports = {
   ignorePatterns: ['!*.d.ts'],
   plugins: ['@typescript-eslint/eslint-plugin', 'eslint-plugin-tsdoc'],
   rules: {
-    'no-redeclare': 'off',
+    // Re add custom changes on standard base rules due to standard-with-typescript override
+    ...baseConfig.rules,
+
     '@typescript-eslint/no-redeclare': ERROR,
 
-    'no-use-before-define': 'off',
+    'no-use-before-define': OFF,
     '@typescript-eslint/no-use-before-define': [ERROR, { functions: false, classes: false, variables: true, enums: false, typedefs: false }],
 
     'no-unused-vars': OFF,
@@ -143,6 +182,10 @@ module.exports = {
         warnOnUnsupportedTypeScriptVersion: true,
       },
       rules: {
+        // Setting OFF eslint base rules which has equivalents in typescript-eslint
+        ...fromEntries(equivalents.map(name => [name, 'off'])),
+        ...fromEntries(equivalents.map(name => [`@typescript-eslint/${name}`, ruleFromBase(name)])),
+
         ...TYPESCRIPT_RULES,
 
         'import/named': OFF,
@@ -182,71 +225,4 @@ module.exports = {
       },
     },
   ],
-  // rules: {
-
-  //   ...TYPESCRIPT_RULES,
-  //   '@typescript-eslint/ban-ts-comment': ['error', { 'ts-ignore': 'allow-with-description' }],
-  //   '@typescript-eslint/naming-convention': [
-  //     ERROR,
-  //     {
-  //       selector: 'variableLike',
-  //       leadingUnderscore: 'forbid',
-  //       trailingUnderscore: 'forbid',
-  //       format: ['camelCase', 'PascalCase', 'UPPER_CASE']
-  //     },
-  //     {
-  //       selector: 'typeLike',
-  //       leadingUnderscore: 'forbid',
-  //       trailingUnderscore: 'forbid',
-  //       format: ['PascalCase']
-  //     }
-  //   ],
-
-  //   '@typescript-eslint/no-explicit-any': OFF
-
-  // // Override JS
-  // 'no-useless-constructor': 'off',
-
-  // 'no-unused-vars': 'off',
-  // '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
-  // 'no-redeclare': 'off',
-  // '@typescript-eslint/no-redeclare': 'error',
-  // 'no-use-before-define': 'off',
-  // '@typescript-eslint/no-use-before-define': ['error', { functions: false, classes: false, variables: true }],
-  // 'brace-style': 'off',
-  // '@typescript-eslint/brace-style': ['error', 'stroustrup', { allowSingleLine: true }],
-
-  // 'object-curly-spacing': 'off',
-  // '@typescript-eslint/object-curly-spacing': ['error', 'always'],
-  // 'semi': 'off',
-  // '@typescript-eslint/semi': ['error', 'never'],
-  // 'quotes': 'off',
-  // '@typescript-eslint/quotes': ['error', 'single'],
-  // 'space-before-blocks': 'off',
-  // '@typescript-eslint/space-before-blocks': ['error', 'always'],
-  // 'space-before-function-paren': 'off',
-  // '@typescript-eslint/space-before-function-paren': [
-  //   'error',
-  //   {
-  //     anonymous: 'always',
-  //     named: 'never',
-  //     asyncArrow: 'always',
-  //   },
-  // ],
-  // 'space-infix-ops': 'off',
-  // '@typescript-eslint/space-infix-ops': 'error',
-  // 'keyword-spacing': 'off',
-  // '@typescript-eslint/keyword-spacing': ['error', { before: true, after: true }],
-  // 'comma-spacing': 'off',
-  // '@typescript-eslint/comma-spacing': ['error', { before: false, after: true }],
-  // 'no-extra-parens': 'off',
-  // '@typescript-eslint/no-extra-parens': ['error', 'functions'],
-  // 'no-dupe-class-members': 'off',
-  // '@typescript-eslint/no-dupe-class-members': 'error',
-  // 'no-loss-of-precision': 'off',
-  // '@typescript-eslint/no-loss-of-precision': 'error',
-  // 'lines-between-class-members': 'off',
-  // '@typescript-eslint/lines-between-class-members': ['error', 'always', { exceptAfterSingleLine: true }],
-
-  // }
 }

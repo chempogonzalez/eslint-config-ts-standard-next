@@ -16,6 +16,8 @@ const COMMON_RULES = {
   'no-return-await': WARNING,
   // ensure file diffs in commits are properly set and just mark the change and not the line before because of a new comma added
   'comma-dangle': [ERROR, 'always-multiline'],
+
+  'comma-spacing': [ERROR, { before: false, after: true }],
   // Allow to separate things in blocks to make code more readable for code in the middle of the file
   'no-multiple-empty-lines': [ERROR, { max: 8, maxBOF: 1, maxEOF: 0 }],
   // Not allow underscore variables because you don't need it and in case you need a private one in classes, you can use "#"
@@ -63,6 +65,70 @@ const COMMON_RULES = {
       'semi': false,
     },
   ],
+
+  'dot-notation': [ERROR, { allowKeywords: true }],
+
+  'indent': [
+    ERROR,
+    2,
+    {
+      SwitchCase: 1,
+      VariableDeclarator: 1,
+      outerIIFEBody: 1,
+      MemberExpression: 1,
+      FunctionDeclaration: { parameters: 1, body: 1 },
+      FunctionExpression: { parameters: 1, body: 1 },
+      CallExpression: { arguments: 1 },
+      ArrayExpression: 1,
+      ObjectExpression: 1,
+      ImportDeclaration: 1,
+      flatTernaryExpressions: false,
+      ignoreComments: false,
+      ignoredNodes: [
+        'TemplateLiteral *',
+        'JSXElement',
+        'JSXElement > *',
+        'JSXAttribute',
+        'JSXIdentifier',
+        'JSXNamespacedName',
+        'JSXMemberExpression',
+        'JSXSpreadAttribute',
+        'JSXExpressionContainer',
+        'JSXOpeningElement',
+        'JSXClosingElement',
+        'JSXFragment',
+        'JSXOpeningFragment',
+        'JSXClosingFragment',
+        'JSXText',
+        'JSXEmptyExpression',
+        'JSXSpreadChild',
+      ],
+      offsetTernaryExpressions: true,
+    },
+  ],
+
+  'keyword-spacing': [ERROR, { before: true, after: true }],
+  'lines-between-class-members': [ERROR, 'always', { exceptAfterSingleLine: true }],
+  'no-array-constructor': ERROR,
+  'no-dupe-class-members': ERROR,
+  'no-extra-parens': [ERROR, 'functions'],
+  'no-loss-of-precision': ERROR,
+  'no-redeclare': ['error', { builtinGlobals: false }],
+  'no-throw-literal': ERROR,
+  'no-unused-expressions': [
+    ERROR,
+    {
+      allowShortCircuit: true,
+      allowTernary: true,
+      allowTaggedTemplates: true,
+    },
+  ],
+  'no-useless-constructor': ERROR,
+  'object-curly-spacing': [ERROR, 'always'],
+  'semi': [ERROR, 'never'],
+  'space-before-blocks': [ERROR, 'always'],
+  'space-before-function-paren': [ERROR, 'always'],
+  'space-infix-ops': ERROR,
 }
 
 module.exports = {
@@ -268,7 +334,7 @@ module.exports = {
 
     // Common
     'curly': [ERROR, 'multi-or-nest', 'consistent'],
-    // 'quotes': [ERROR, 'single'],
+    'quotes': [ERROR, 'single'],
     'quote-props': [ERROR, 'consistent-as-needed'],
     'no-unused-vars': [
       ERROR,
@@ -279,8 +345,9 @@ module.exports = {
       },
     ],
 
-    // 'no-param-reassign': OFF,
-    // 'brace-style': [ERROR, 'stroustrup', { allowSingleLine: true }],
+    'func-call-spacing': [ERROR, 'never'],
+
+    'brace-style': [ERROR, '1tbs', { allowSingleLine: true }],
 
     'no-cond-assign': [ERROR, 'always'],
 
