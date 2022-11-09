@@ -52,9 +52,9 @@ const COMMON_RULES = {
   ],
 
   // Array definition formatting
-  'array-element-newline': [ERROR, { multiline: true, minItems: 4 }],
+  'array-element-newline': [ERROR, 'consistent'],
 
-  'array-bracket-newline': [ERROR, { multiline: true, minItems: 4 }],
+  'array-bracket-newline': [ERROR, { multiline: true, minItems: null }],
 
   'array-bracket-spacing': [ERROR, 'never', { arraysInArrays: true }],
 
