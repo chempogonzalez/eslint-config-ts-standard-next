@@ -1,9 +1,9 @@
-// @ts-check
 const RULES = {
   OFF: 0,
   WARNING: 1,
   ERROR: 2,
 }
+
 
 const { OFF, WARNING, ERROR } = RULES
 
