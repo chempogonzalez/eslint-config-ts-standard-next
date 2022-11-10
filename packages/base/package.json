@@ -1,6 +1,6 @@
 {
   "name": "@chempo/eslint-config-base",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "ESLint config with standard rules + plugins for best practices",
   "author": "Chempo González <chempo.glez@gmail.com> (https://github.com/chempogonzalez/)",
   "license": "MIT",
