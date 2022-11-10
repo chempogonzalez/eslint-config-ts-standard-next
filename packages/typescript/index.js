@@ -190,6 +190,7 @@ module.exports = {
 
         'import/named': OFF,
 
+        'no-underscore-dangle': OFF,
         // Needs overwrite to ensure typescript-eslint is who manage the rule properly
         'no-return-await': OFF,
         // warning instead of error because await in return could provide more information on errors but avoid to use it
