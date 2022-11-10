@@ -9,7 +9,7 @@ const { OFF, WARNING, ERROR } = RULES
 
 const COMMON_RULES = {
   // Enforce new wide screens length
-  'max-len': [ERROR, { code: 160, tabWidth: 2 }],
+  'max-len': [ERROR, { code: 160, tabWidth: 2, ignoreStrings: true }],
   // Enforce to have the operator before the code to make it more readable in a left-to-right read
   'operator-linebreak': [ERROR, 'before', { overrides: { '=': 'after' } }],
   // warning instead of error because await in return could provide more information on errors but avoid to use it
