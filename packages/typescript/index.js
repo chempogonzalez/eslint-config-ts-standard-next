@@ -202,6 +202,9 @@ module.exports = {
         // TODO comment why
         '@typescript-eslint/restrict-plus-operands': ERROR,
 
+        // Enforce to use always Type instead of Interface for consistency and to avoid problems with type inference
+        '@typescript-eslint/consistent-type-definitions': [ERROR, 'type'],
+
         '@typescript-eslint/naming-convention': [
           ERROR,
           {
