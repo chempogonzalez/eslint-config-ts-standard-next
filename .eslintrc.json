@@ -1,3 +1,10 @@
 {
-  "extends": "ts-standard-next"
+  "extends": "ts-standard-next",
+  "parserOptions": {
+    "sourceType": "module",
+    "project": [ "tsconfig.eslint.json" ],
+    "ecmaFeatures": {
+      "impliedStrict": true
+    }
+  }
 }

@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "allowJs": true
+  },
+  "files": [ "README.md" ],
+  "include": [ "README.md", "**/**/*.js", "demos/*.ts*" ],
+  "exclude": [ "node_modules" ]
+}
