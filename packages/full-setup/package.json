@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-ts-standard-next",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Chempo's ESLint Config for NextJS with TypeScript projects with best practices",
   "author": "Chempo González <chempo.glez@gmail.com> (https://github.com/chempogonzalez/)",
   "license": "MIT",
