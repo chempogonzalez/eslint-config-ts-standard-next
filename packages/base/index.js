@@ -1,11 +1,276 @@
+// @ts-check
 const RULES = {
   OFF: 0,
   WARNING: 1,
   ERROR: 2,
 }
 
-
 const { OFF, WARNING, ERROR } = RULES
+
+
+const stylisticRules = {
+  // common
+  'array-bracket-newline': OFF,
+  '@stylistic/js/array-bracket-newline': [ERROR, { multiline: true, minItems: null }],
+
+  // common
+  'array-bracket-spacing': OFF,
+  '@stylistic/js/array-bracket-spacing': [ERROR, 'never', { arraysInArrays: true }],
+
+  // common
+  'array-element-newline': OFF,
+  '@stylistic/js/array-element-newline': [ERROR, 'consistent'],
+
+  'arrow-spacing': OFF,
+  '@stylistic/js/arrow-spacing': [ERROR, { before: true, after: true }],
+
+  // rules
+  'block-spacing': OFF,
+  '@stylistic/js/block-spacing': [ERROR, 'always'],
+
+  // rules
+  'brace-style': OFF,
+  '@stylistic/js/brace-style': [ERROR, '1tbs', { allowSingleLine: true }],
+
+  // common
+  'comma-spacing': OFF,
+  '@stylistic/js/comma-spacing': [ERROR, { before: false, after: true }],
+
+  'comma-style': OFF,
+  '@stylistic/js/comma-style': [ERROR, 'last'],
+
+  'computed-property-spacing': OFF,
+  '@stylistic/js/computed-property-spacing': ['error', 'never', { enforceForClassMembers: true }],
+
+  'dot-location': OFF,
+  '@stylistic/js/dot-location': [ERROR, 'property'],
+
+  // rules
+  'func-call-spacing': OFF,
+  '@stylistic/js/func-call-spacing': [ERROR, 'never'],
+
+  // 'function-call-argument-newline': OFF,
+  // '@stylistic/js/function-call-argument-newline': [ERROR, 'consistent'],
+
+  // 'function-paren-newline': OFF,
+  // '@stylistic/js/function-paren-newline': [ERROR, 'consistent'],
+
+  'generator-star-spacing': OFF,
+  '@stylistic/js/generator-star-spacing': [ERROR, { before: false, after: true }],
+
+  // 'implicit-arrow-linebreak': OFF,
+  // '@stylistic/js/implicit-arrow-linebreak': [ERROR, 'beside'],
+
+  // common
+  'indent': OFF,
+  '@stylistic/js/indent': [
+    ERROR,
+    2,
+    {
+      SwitchCase: 1,
+      VariableDeclarator: 1,
+      outerIIFEBody: 1,
+      MemberExpression: 1,
+      FunctionDeclaration: { parameters: 1, body: 1 },
+      FunctionExpression: { parameters: 1, body: 1 },
+      CallExpression: { arguments: 1 },
+      ArrayExpression: 1,
+      ObjectExpression: 1,
+      ImportDeclaration: 1,
+      flatTernaryExpressions: false,
+      ignoreComments: false,
+      ignoredNodes: [
+        'TemplateLiteral *',
+        'JSXElement',
+        'JSXElement > *',
+        'JSXAttribute',
+        'JSXIdentifier',
+        'JSXNamespacedName',
+        'JSXMemberExpression',
+        'JSXSpreadAttribute',
+        'JSXExpressionContainer',
+        'JSXOpeningElement',
+        'JSXClosingElement',
+        'JSXFragment',
+        'JSXOpeningFragment',
+        'JSXClosingFragment',
+        'JSXText',
+        'JSXEmptyExpression',
+        'JSXSpreadChild',
+      ],
+      offsetTernaryExpressions: true,
+    },
+  ],
+
+  // common
+  'key-spacing': OFF,
+  '@stylistic/js/key-spacing': [
+    ERROR,
+    {
+      beforeColon: false,
+      afterColon: true,
+      // align : {
+      //   beforeColon: false,
+      //   afterColon:  true,
+      //   on:          'value',
+      // },
+    },
+  ],
+
+  // common
+  'keyword-spacing': OFF,
+  '@stylistic/js/keyword-spacing': [ERROR, { before: true, after: true }],
+
+  // 'linebreak-style': OFF,
+  // '@stylistic/js/linebreak-style': [ERROR, 'unix'],
+
+  // 'lines-around-comment': OFF,
+  // '@stylistic/js/lines-around-comment': [
+  //   ERROR,
+  //   {
+  //     beforeBlockComment: true,
+  //     afterBlockComment: false,
+  //     beforeLineComment: true,
+  //     afterLineComment: false,
+  //     allowBlockStart: true,
+  //     allowBlockEnd: true,
+  //     allowObjectStart: true,
+  //     allowObjectEnd: true,
+  //     allowArrayStart: true,
+  //     allowArrayEnd: true,
+  //     allowClassStart: true,
+  //     allowClassEnd: true,
+  //     applyDefaultIgnorePatterns: true,
+  //   },
+  // ],
+
+  // 'lines-around-directive': OFF,
+  // '@stylistic/js/lines-around-directive': [ERROR, { before: 'always', after: 'always' }],
+
+
+  // common
+  'lines-between-class-members': OFF,
+  '@stylistic/js/lines-between-class-members': [ERROR, 'always', { exceptAfterSingleLine: true }],
+
+  'multiline-ternary': OFF,
+  '@stylistic/js/multiline-ternary': [ERROR, 'always-multiline'],
+
+  // 'newline-after-var': OFF,
+  // '@stylistic/js/newline-after-var': [ERROR, 'always'],
+
+  // 'newline-before-return': OFF,
+  // '@stylistic/js/newline-before-return': ERROR,
+
+  // 'newline-per-chained-call': OFF,
+  // '@stylistic/js/newline-per-chained-call': [ERROR, { ignoreChainWithDepth: 3 }],
+
+  'no-mixed-spaces-and-tabs': OFF,
+  '@stylistic/js/no-mixed-spaces-and-tabs': ERROR,
+
+  'no-multi-spaces': OFF,
+  '@stylistic/js/no-multi-spaces': ERROR,
+
+  // common
+  'no-multiple-empty-lines': OFF,
+  '@stylistic/js/no-multiple-empty-lines': [ERROR, { max: 8, maxBOF: 1, maxEOF: 0 }],
+
+  'no-tabs': OFF,
+  '@stylistic/js/no-tabs': ERROR,
+
+  'no-trailing-spaces': OFF,
+  '@stylistic/js/no-trailing-spaces': ERROR,
+
+  'no-whitespace-before-property': OFF,
+  '@stylistic/js/no-whitespace-before-property': ERROR,
+
+  // 'nonblock-statement-body-position': OFF,
+  // '@stylistic/js/nonblock-statement-body-position': [ERROR, 'beside'],
+
+  'object-curly-newline': OFF,
+  '@stylistic/js/object-curly-newline': [ERROR, { multiline: true, consistent: true }],
+
+  // common
+  'object-curly-spacing': OFF,
+  '@stylistic/js/object-curly-spacing': [ERROR, 'always'],
+
+  'object-property-newline': OFF,
+  '@stylistic/js/object-property-newline': [ERROR, { allowMultiplePropertiesPerLine: true }],
+
+  // 'one-var-declaration-per-line': OFF,
+  // '@stylistic/js/one-var-declaration-per-line': [ERROR, 'always'],
+
+  // common
+  'operator-linebreak': OFF,
+  '@stylistic/js/operator-linebreak': [ERROR, 'before', { overrides: { '=': 'after' } }],
+
+  'padded-blocks': OFF,
+  '@stylistic/js/padded-blocks': [ERROR, { blocks: 'never', switches: 'never', classes: 'never' }],
+
+  // common
+  'padding-line-between-statements': OFF,
+  '@stylistic/js/padding-line-between-statements': [
+    ERROR,
+    { blankLine: 'always', prev: '*', next: 'return' },
+    // directives (start of file, 'use strict', imports)
+    { blankLine: 'any', prev: 'directive', next: 'directive' },
+    { blankLine: 'always', prev: 'directive', next: '*' },
+
+    { blankLine: 'always', prev: ['case', 'default'], next: '*' },
+    // const & let blocks
+    { blankLine: 'any', prev: ['const', 'let'], next: ['const', 'let'] },
+    { blankLine: 'always', prev: ['const', 'let'], next: '*' },
+  ],
+
+
+  'rest-spread-spacing': OFF,
+  '@stylistic/js/rest-spread-spacing': [ERROR, 'never'],
+
+  'semi-spacing': OFF,
+  '@stylistic/js/semi-spacing': [ERROR, { before: false, after: true }],
+
+  // 'semi-style': OFF,
+  // '@stylistic/js/semi-style': [ERROR, 'last'],
+
+  // common
+  'space-before-blocks': OFF,
+  '@stylistic/js/space-before-blocks': [ERROR, 'always'],
+
+  // common
+  'space-before-function-paren': OFF,
+  '@stylistic/js/space-before-function-paren': [ERROR, 'always'],
+
+  'space-in-parens': OFF,
+  '@stylistic/js/space-in-parens': [ERROR, 'never'],
+
+  // common
+  'space-infix-ops': OFF,
+  '@stylistic/js/space-infix-ops': ERROR,
+
+  'space-unary-ops': OFF,
+  '@stylistic/js/space-unary-ops': [ERROR, { words: true, nonwords: false }],
+
+  'spaced-comment': OFF,
+  '@stylistic/js/spaced-comment': [
+    ERROR,
+    'always',
+    {
+      line: { markers: ['*package', '!', '/', ',', '='] },
+      block: { balanced: true, markers: ['*package', '!', ',', ':', '::', 'flow-include'], exceptions: ['*'] },
+    },
+  ],
+
+  // 'switch-colon-spacing': OFF,
+  // '@stylistic/js/switch-colon-spacing': [ERROR, { after: true, before: false }],
+
+  'template-curly-spacing': OFF,
+  '@stylistic/js/template-curly-spacing': [ERROR, 'never'],
+
+  'template-tag-spacing': OFF,
+  '@stylistic/js/template-tag-spacing': [ERROR, 'never'],
+
+  'yield-star-spacing': OFF,
+  '@stylistic/js/yield-star-spacing': [ERROR, 'both'],
+}
 
 const COMMON_RULES = {
   // Enforce new wide screens length
@@ -129,6 +394,30 @@ const COMMON_RULES = {
   'space-before-blocks': [ERROR, 'always'],
   'space-before-function-paren': [ERROR, 'always'],
   'space-infix-ops': ERROR,
+  'key-spacing': [
+    ERROR,
+    {
+      beforeColon: false,
+      afterColon: true,
+      // align : {
+      //   beforeColon: false,
+      //   afterColon:  true,
+      //   on:          'value',
+      // },
+    },
+  ],
+  'padding-line-between-statements': [
+    ERROR,
+    { blankLine: 'always', prev: '*', next: 'return' },
+    // directives (start of file, 'use strict', imports)
+    { blankLine: 'any', prev: 'directive', next: 'directive' },
+    { blankLine: 'always', prev: 'directive', next: '*' },
+
+    { blankLine: 'always', prev: ['case', 'default'], next: '*' },
+    // const & let blocks
+    { blankLine: 'any', prev: ['const', 'let'], next: ['const', 'let'] },
+    { blankLine: 'always', prev: ['const', 'let'], next: '*' },
+  ],
 }
 
 module.exports = {
@@ -164,7 +453,7 @@ module.exports = {
     '!.vitepress',
     '!.vscode',
   ],
-  plugins: ['html', 'unicorn', 'import-newlines'],
+  plugins: ['html', 'unicorn', 'import-newlines', '@stylistic/js'],
   settings: {
     'import/resolver': {
       node: {
@@ -178,6 +467,9 @@ module.exports = {
     {
       files: ['*.json', '*.json5', '*.jsonc'],
       parser: 'jsonc-eslint-parser',
+      parserOptions: {
+        jsonSyntax: 'JSON5',
+      },
       rules: {
         'jsonc/array-bracket-spacing': [ERROR, 'always'],
         'jsonc/comma-dangle': [ERROR, 'never'],
@@ -268,13 +560,13 @@ module.exports = {
       },
     },
 
-    // TYPESCRIPT DECLARATIONS ------------------------------------------------
-    {
-      files: ['*.d.ts'],
-      rules: {
-        'import/no-duplicates': OFF,
-      },
-    },
+    // // TYPESCRIPT DECLARATIONS ------------------------------------------------
+    // {
+    //   files: ['*.d.ts'],
+    //   rules: {
+    //     'import/no-duplicates': OFF,
+    //   },
+    // },
 
     // JAVASCRIPT ---------------------------------------------------------------
     {
@@ -307,7 +599,7 @@ module.exports = {
 
     {
       // Code blocks in markdown file
-      files: ['**/*.md/*.*'],
+      files: ['**/*.md/*.*', '*.md/*.*'],
       rules: {
         '@typescript-eslint/no-redeclare': OFF,
         '@typescript-eslint/no-unused-vars': OFF,
@@ -382,6 +674,7 @@ module.exports = {
     ],
 
     'block-scoped-var': ERROR,
+    'block-spacing': [ERROR, 'always'],
 
     'consistent-return': OFF,
     'complexity': [OFF, 11],
@@ -428,5 +721,6 @@ module.exports = {
     'yml/quotes': [ERROR, { prefer: 'single', avoidEscape: false }],
     'yml/no-empty-document': OFF,
 
+    ...stylisticRules,
   },
 }

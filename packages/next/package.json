@@ -17,15 +17,15 @@
     "tsdoc.json"
   ],
   "peerDependencies": {
-    "eslint": ">=7.4.0",
-    "next": ">=12"
+    "eslint": ">=8.0.1",
+    "next": ">=13.4"
   },
   "dependencies": {
     "@chempo/eslint-config-ts": "workspace:*",
-    "eslint-config-next": "13.0.2"
+    "eslint-config-next": "13.5.1"
   },
   "devDependencies": {
-    "eslint": "8.26.0",
-    "next": "13.0.2"
+    "eslint": "8.49.0",
+    "next": "13.5.1"
   }
 }

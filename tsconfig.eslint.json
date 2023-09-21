@@ -4,7 +4,15 @@
     "noEmit": true,
     "allowJs": true
   },
-  "files": [ "README.md" ],
-  "include": [ "README.md", "**/**/*.js", "demos/*.ts*" ],
+  "include": [
+    ".eslintrc.js",
+    "./packages/**/*.js",
+    "./packages/**/*.jsx",
+    "./demos/**/*.js",
+    "./demos/**/*.jsx",
+
+    "./demos/**/*.ts",
+    "./demos/**/*.tsx"
+  ],
   "exclude": [ "node_modules" ]
 }

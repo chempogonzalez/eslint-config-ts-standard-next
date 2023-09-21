@@ -14,6 +14,7 @@ const { ERROR } = RULES
 module.exports = {
   extends: ['next', '@chempo/eslint-config-ts'],
   rules: {
+    'jsx-quotes': ['error', 'prefer-single'],
     'react/no-unknown-property': [ERROR],
     'react/no-unsafe': [ERROR],
 

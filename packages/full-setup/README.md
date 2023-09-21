@@ -1,10 +1,13 @@
 # eslint-config-ts-standard-next [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 
 ## 🔖 Description
+
 Eslint config with standard-typescript (+other plugins) and extra opinionated configs applying best practices and focused on declarative code
 
 # 📖 Summary
+
 > Linting and best practices rules for:
+>
 > - JavaScript and JSX
 > - TypeScript and TSX
 > - TSDoc
@@ -16,7 +19,6 @@ Eslint config with standard-typescript (+other plugins) and extra opinionated co
 > - YAML
 > - Markdown
 
-
 ## 📦 Installation
 
 ```zsh
@@ -24,8 +26,8 @@ Eslint config with standard-typescript (+other plugins) and extra opinionated co
 $ npm install -D eslint-config-ts-standard-next
 ```
 
-
 ## 🚀 Usage
+
 Add to your `eslint config` file the config extending it like the example below:
 
 ```jsonc
@@ -46,7 +48,6 @@ or add it directly in your `package.json`
 ```
 
 ---
-
 
 ## 🤓 Happy Code
 

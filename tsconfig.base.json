@@ -3,6 +3,7 @@
     "baseUrl": ".",
     "target": "es2020",
     "module": "es2020",
+    "strict": true,
     "lib": [
       "ES2015",
       "ES2017",
@@ -17,6 +18,7 @@
   "include": [
     "./packages/**/*.ts",
     "./packages/**/*.tsx",
+
 
     "./demos/**/*.ts",
     "./demos/**/*.tsx"

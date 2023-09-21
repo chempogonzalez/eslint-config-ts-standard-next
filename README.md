@@ -1,10 +1,13 @@
 # eslint-config-ts-standard-next
 
 ## 🔖 Description
+
 Eslint config with standard-typescript (+other plugins) and extra opinionated configs applying best practices and focused on declarative code
 
 # 📖 Summary
+>
 > Linting and best practices rules for:
+>
 > - JavaScript and JSX
 > - TypeScript and TSX
 > - TSDoc
@@ -16,10 +19,11 @@ Eslint config with standard-typescript (+other plugins) and extra opinionated co
 > - YAML
 > - Markdown
 
-
 # 🔥 Features
+
 The final package published is the [eslint-config-ts-standard-next](packages/full-setup/README.md) but in this monorepo you can find the dependencies separated in the following packages:
-- [eslint-config-base](packages/base/): 
+
+- [eslint-config-base](packages/base/):
   - standard config
   - json plugin for _*.json, *.jsonc and *.json5_
   - yml plugin for _*.yml and *.yaml_
@@ -37,9 +41,7 @@ The final package published is the [eslint-config-ts-standard-next](packages/ful
   - eslint-config-next for next related rules + react + react-hooks + jsx a11y for accessibility
   - Switch on some react rules to enforce consistency
 
-
 ---
-
 
 ## 🤓 Happy Code
 
