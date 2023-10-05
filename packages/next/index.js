@@ -20,7 +20,7 @@ module.exports = {
 
     'react/jsx-no-leaked-render': ['error', { validStrategies: ['coerce', 'ternary'] }],
     'react/jsx-indent-props': ['error', 2],
-    'react/jsx-indent': ['error', 2],
+    'react/jsx-indent': ['error', 2, { checkAttributes: true, indentLogicalExpressions: true }],
 
 
     'react/jsx-curly-spacing': ['error', 'never'],
